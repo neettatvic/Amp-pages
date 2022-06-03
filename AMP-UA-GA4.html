@@ -1,0 +1,1192 @@
+<!doctype html>
+<html amp lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <title>Hello, AMPs</title>
+    <link rel="canonical" href="https://amp.dev/documentation/examples/components/amp-carousel/index.html">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script async src="https://cdn.ampproject.org/v0.js"> </script>
+
+    <!-- AMP Analytics -->
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+
+    <!-- Amp Youtube video supporting CDN -->
+    <script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js">
+    </script>
+
+    <!-- Meta tag for Amp client id stiching API  -->
+    <meta name="amp-google-client-id-api" content="googleanalytics">
+
+
+
+    <!-- hide and show in amp -->
+    <script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+
+    <!-- accordion hide and show in amp -->
+    <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+
+    <!-- carousel -->
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js">
+    </script>
+
+    <!-- side bar -->
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+
+    <!-- carousel css -->
+    <style amp-boilerplate>
+        body {
+            -webkit-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+
+            -moz-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+
+            -ms-animation: -amp-start 8s steps(1, end) 0s 1 normal both;
+
+            animation: -amp-start 8s steps(1, end) 0s 1 normal both
+        }
+
+        @-webkit-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-moz-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-ms-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @-o-keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+
+        @keyframes -amp-start {
+            from {
+                visibility: hidden
+            }
+
+            to {
+                visibility: visible
+            }
+        }
+    </style>
+    <!-- carousel css -->
+    <noscript>
+        <style amp-boilerplate>
+            body {
+                -webkit-animation: none;
+                -moz-animation: none;
+                -ms-animation: none;
+                animation: none
+            }
+        </style>
+    </noscript>
+
+    <!-- amp custom style tag -->
+    <style amp-custom>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            background-color: aliceblue;
+            height: 200px;
+            padding-top: 20px;
+        }
+
+        h1 {
+            color: darkgoldenrod;
+        }
+
+        .left-box,
+        .right-box {
+            width: 50%;
+            float: left;
+            font-size: 15px;
+        }
+
+        .cta_click {
+            color: #ffffff;
+            background-color: red;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            margin: 25%;
+        }
+
+        /* .hidden012 { display: none; }  */
+    </style>
+
+
+
+
+</head>
+
+
+
+<body class="body">
+    <!-- UA ID: UA-219263204-1 -->
+    <!-- GA4 MID: G-CT05FG5EK2 -->
+    <!-- Final Method -->
+
+    <!-- GA3 Normal Pageview -->
+    <amp-analytics type="googleanalytics">
+        <script type="application/json">
+          {
+            "vars": { UA-219263204-1
+              "account":"UA-219263204-1"
+                },
+                "triggers": {
+                        "trackPageview": {
+                        "on": "visible",
+                        "request": "pageview"
+                        }
+                    }
+          }
+        </script>
+    </amp-analytics>
+
+    <!-- GA4 Normal Pageview -->
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json"
+        data-credentials="include">
+        <script type="application/json">
+    {
+        "vars": { G-CT05FG5EK2
+                    "GA4_MEASUREMENT_ID": "G-CT05FG5EK2",
+                    "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                    "DEFAULT_PAGEVIEW_ENABLED": true,    
+                    "GOOGLE_CONSENT_ENABLED": false,
+                    "WEBVITALS_TRACKING": false,
+                    "PERFORMANCE_TIMING_TRACKING": false,
+                    "SEND_DOUBLECLICK_BEACON": false
+        }
+    }
+    </script>
+    </amp-analytics>
+
+
+    <!-- GA3 Pageview with params -->
+    <amp-analytics type="googleanalytics">
+        <script type="application/json">
+          {
+            "vars": {
+              "account":"UA-219263204-1"
+                },
+                "triggers": {
+                        "trackPageview": {
+                        "on": "visible",
+                        "request": "pageview"
+                        }
+                    },        
+                "extraUrlParams": {
+                "cd1":"pageview",
+                "cd2":"${clientId}"
+                }
+          }
+        </script>
+    </amp-analytics>
+
+    <!-- GA4 Pageviews with params -->
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json"
+        data-credentials="include">
+        <script type="application/json">
+        {
+            "vars": {
+                        "GA4_MEASUREMENT_ID": "G-CT05FG5EK2",
+                        "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                        "DEFAULT_PAGEVIEW_ENABLED": true,    
+                        "GOOGLE_CONSENT_ENABLED": false,
+                        "WEBVITALS_TRACKING": false,
+                        "PERFORMANCE_TIMING_TRACKING": false,
+                        "SEND_DOUBLECLICK_BEACON": false
+            },
+            "extraUrlParams": {
+                "event__str_action": "pageview",
+                "event__str_url": "${ampdocUrl}",
+                "event__str_clientId": "CLIENT_ID(_ga)"
+            }     
+        }
+        </script>
+    </amp-analytics>
+
+    <!-- GA3 CTA click -->
+    <amp-analytics type="googleanalytics">
+        <script type="application/json">
+        {
+            "vars": 
+            {
+                "account":"UA-219263204-1"
+            },                
+            "triggers": 
+            {
+                "trackEvent": 
+                {
+                    "selector": ".cta_click",
+                    "on": "click",
+                    "request": "event",
+                    "vars": 
+                        {
+                            "eventCategory": "Button Click",
+                            "eventAction": "Clicked",
+                            "eventLabel": "sidebar menu Clicked",
+                            "eventValue": ""
+                        }
+                }                  
+            },
+            "extraUrlParams": {
+                "cd2":"${clientId}",
+                "cd3":"btn click",
+                "cd4":"Click"
+                }  
+        }
+            </script>
+    </amp-analytics>
+
+    <!-- GA4 CTA click -->
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json"
+        data-credentials="include">
+        <script type="application/json">
+        {
+            "vars": {
+                        "GA4_MEASUREMENT_ID": "G-CT05FG5EK2",
+                        "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                        "DEFAULT_PAGEVIEW_ENABLED": false,    
+                        "GOOGLE_CONSENT_ENABLED": false,
+                        "WEBVITALS_TRACKING": false,
+                        "PERFORMANCE_TIMING_TRACKING": false,
+                        "SEND_DOUBLECLICK_BEACON": false
+            },
+            "triggers": {
+                "cta_tracking": {
+                "on": "click",
+                "selector": ".cta_click",
+                "request": "ga4Event",
+                "vars": {
+                    "ga4_event_name": "GA4 click"
+                },
+                "extraUrlParams": {
+                    "event__str_eventAction": "clicked",
+                    "event__str_clientId": "CLIENT_ID(_ga)"
+                }       
+                }
+            }             
+        }
+        </script>
+    </amp-analytics>
+
+    <!-- GA3 Scroll -->
+    <amp-analytics type="googleanalytics">
+        <script type="application/json">
+        {
+            "vars": 
+            {
+                "account":"UA-219263204-1"
+            },
+            "triggers": 
+            {
+                "scrollPings": 
+                    {
+                        "on": "scroll",
+                        "scrollSpec": 
+                            {
+                            "verticalBoundaries": [50,100]
+                            },
+                            "request": "event",
+                            "vars": 
+                                {
+                                    "eventCategory": "AMP Scroll Depth",
+                                    "eventAction": "Scrolled",
+                                    "eventLabel": "${verticalScrollBoundary}%",
+                                    "eventValue": ""
+                                }
+                    }
+            },
+            "extraUrlParams": {
+                "cd2":"${clientId}",
+                "cd5":"${verticalScrollBoundary}% Scroll"
+                }
+        }
+    </script>
+    </amp-analytics>
+
+    <!--GA4 Scroll -->
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json"
+        data-credentials="include">
+        <script type="application/json">
+{
+   "vars": {
+               "GA4_MEASUREMENT_ID": "G-CT05FG5EK2",
+               "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+               "DEFAULT_PAGEVIEW_ENABLED": false,   
+               "GOOGLE_CONSENT_ENABLED": false,
+               "WEBVITALS_TRACKING": false,
+               "PERFORMANCE_TIMING_TRACKING": false,
+               "SEND_DOUBLECLICK_BEACON": false
+   },
+   "triggers": {
+       "scrollTracking": {
+           "on": "scroll",
+           "request": "ga4Event",
+           "vars": {
+               "ga4_event_name": "AMP Scroll Depth"
+           },
+           "extraUrlParams": {
+               "event__str_percent_scrolled": "${verticalScrollBoundary}% Scroll",
+               "event__str_clientId": "CLIENT_ID(_ga)"
+           },
+           "scrollSpec": {
+               "verticalBoundaries": [50, 100],
+               "horizontalBoundaries": [],
+               "useInitialPageSize": false
+           }
+       }
+    }
+}
+</script>
+    </amp-analytics>
+
+    <!-- GA3 Page loading tracking -->
+    <amp-analytics type="googleanalytics">
+        <script type="application/json">
+        {
+            "vars": {
+                "account": "UA-219263204-1"
+            },
+            "triggers": {
+                "pageLoaded": {
+                   "on": "ini-load",
+                   "request": "event",
+                   "vars": {
+                       "eventCategory": "page_is_loaded",
+                       "eventAction": "page fully loaded",
+                       "eventValue": ""
+                    },
+                    "extraUrlParams": {
+                        "cd2":"${clientId}"
+                        }  
+                 }
+                  
+            } 
+        }
+        </script>
+    </amp-analytics>
+
+    <!-- GA4 Page loading Tracking -->
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json"
+        data-credentials="include">
+        <script type="application/json">
+        {
+            "vars": {
+                        "GA4_MEASUREMENT_ID": "G-CT05FG5EK2",
+                        "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                        "DEFAULT_PAGEVIEW_ENABLED": false,    
+                        "GOOGLE_CONSENT_ENABLED": false,
+                        "WEBVITALS_TRACKING": false,
+                        "PERFORMANCE_TIMING_TRACKING": false,
+                        "SEND_DOUBLECLICK_BEACON": false
+            },
+            "triggers": {
+                "pageLoaded": {
+                   "on": "ini-load",
+                   "request": "ga4Event",
+                   "vars": {
+                       "ga4_event_name": "page_is_loaded"
+                    },
+                    "extraUrlParams": {
+                         "event__str_clientId": "CLIENT_ID(_ga)"   
+                 }
+                 }  
+               }      
+        }
+        </script>
+    </amp-analytics>
+
+    <!-- GA3 Page Hidden Tracking -->
+    <amp-analytics type="googleanalytics">
+        <script type="application/json">
+        {
+            "vars": {
+                "account": "UA-219263204-1"
+            },
+            "triggers": 
+            {
+                "pageHidden": 
+                {
+                "on": "hidden",
+                "request": "event",
+                "vars": 
+                {
+                    "eventCategory": "page_is_hidden",
+                    "eventAction": "hidden",
+                    "eventValue": ""
+                },
+                "extraUrlParams": {
+                    "cd2":"${clientId}"
+                    }
+                },
+                "visibilitySpec": 
+                {
+                    "selector": "body",
+                    "visiblePercentageMin": 20,
+                    "totalTimeMin": 3000
+                }
+            } 
+        }
+        </script>
+    </amp-analytics>
+
+    <!-- GA4 Page Hidden Tracking -->
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json"
+        data-credentials="include">
+        <script type="application/json">
+            {
+                "vars": {
+                            "GA4_MEASUREMENT_ID": "G-CT05FG5EK2",
+                            "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                            "DEFAULT_PAGEVIEW_ENABLED": false,   
+                            "GOOGLE_CONSENT_ENABLED": false,
+                            "WEBVITALS_TRACKING": false,
+                            "PERFORMANCE_TIMING_TRACKING": false,
+                            "SEND_DOUBLECLICK_BEACON": false
+                        },
+                        "triggers": {
+                            "pageHidden": {
+                                "on": "hidden",
+                                "request": "ga4Event",
+                                "vars": {
+                                    "ga4_event_name": "page_is_hidden"
+                                    },
+                                "extraUrlParams": 
+                                {
+                                "event__str_clientId": "CLIENT_ID(_ga)"   
+                                }
+                            },
+                        "visibilitySpec": {
+                            "selector": "body",
+                            "visiblePercentageMin": 20,
+                            "totalTimeMin": 3000
+                            }           
+                        }
+            }
+        </script>
+    </amp-analytics>
+
+    <!-- GA3 YouTube Video Tracking -->
+    <amp-analytics type="googleanalytics">
+        <script type="application/json">
+                {
+                    "vars": {
+                        "account": "UA-219263204-1"
+                    },
+                    "extraUrlParams": {
+                        "cd6":"video Tracking",
+                        "cd2":"${clientId}"
+                    },
+                    "triggers": {
+                        "videoPlayed": {
+                            "on": "video-play",
+                            "request": "event",
+                            "selector": "#yt-player0",
+                            "vars": {
+                                "eventCategory": "video-played",
+                                "eventAction": "video",
+                                "eventLabel": "played",
+                                "eventValue": ""
+                            }
+                        },
+                        "videoPaused": {
+                            "on": "video-pause",
+                            "request": "event",
+                            "selector": "#yt-player0",
+                            "vars": {
+                                "eventCategory": "video-paused",
+                                "eventAction": "video",
+                                "eventLabel": "paused",
+                                "eventValue": ""
+                            }
+                        },
+                       "videoEnded": {
+                            "on": "video-ended",
+                            "request": "event",
+                            "selector": "#yt-player0",
+                            "vars": {
+                                "eventCategory": "video-ended",
+                                "eventAction": "video",
+                                "eventLabel": "ended",
+                                "eventValue": ""
+                            }
+                        }
+                    }
+                }
+            </script>
+    </amp-analytics>
+
+
+    <!-- GA4 Youtube Video Tracking -->
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json"
+        data-credentials="include">
+        <script type="application/json">
+            {
+                "vars": {
+                            "GA4_MEASUREMENT_ID": "G-CT05FG5EK2",
+                            "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                            "DEFAULT_PAGEVIEW_ENABLED": false,   
+                            "GOOGLE_CONSENT_ENABLED": false,
+                            "WEBVITALS_TRACKING": false,
+                            "PERFORMANCE_TIMING_TRACKING": false,
+                            "SEND_DOUBLECLICK_BEACON": false
+                },
+                "triggers": {
+                    "videoPlayEvent": {
+                        "on": "video-play",
+                        "request": "ga4Event",
+                        "vars": {
+                            "ga4_event_name": "video_played"
+                        },
+                        "selector": "#yt-player0",
+                        "videoSpec": {},
+                        "extraUrlParams": {
+                            "event__str_clientId": "CLIENT_ID(_ga)", 
+                            "event__num_video_autoplay": "${autoplay}",
+                            "event__num_video_currentTime": "${currentTime}",
+                            "event__num_video_duration": "${duration}",
+                            "event__num_video_height": "${height}",
+                            "event__str_video_id": "${id}",
+                            "event__num_video_playedTotal": "${playedTotal}",
+                            "event__str_video_state": "${state}",
+                            "event__num_video_width": "${width}"
+                        }
+                    },
+                    "videoPauseEvent": {
+                        "on": "video-pause",
+                        "request": "ga4Event",
+                        "vars": {
+                            "ga4_event_name": "video_paused"
+                        },
+                        "selector": "#yt-player0",
+                        "videoSpec": {},
+                        "extraUrlParams": {
+                            "event__str_clientId": "CLIENT_ID(_ga)",
+                            "event__str_video_title": "${id}",
+                            "event__num_video_video_pause_time": "${currentTime}"  
+                        }
+                    },
+                    "videoEndEvent": {
+                        "on": "video-ended",
+                        "request": "ga4Event",
+                        "vars": {
+                            "ga4_event_name": "video_ended"
+                        },
+                        "selector": "#yt-player0",
+                        "videoSpec": {},
+                        "extraUrlParams": {
+                            "event__str_clientId": "CLIENT_ID(_ga)",
+                            "event__str_video_title": "${id}",
+                            "event__num_video_video_end_time": "${currentTime}"                           
+                        }
+                    }
+                    
+                }
+            }
+        </script>
+    </amp-analytics>
+
+
+    <!-- GA3 Element Visibility -->
+    <amp-analytics type="googleanalytics">
+        <script type="application/json">
+        {
+            "vars": {
+                "account": "UA-219263204-1"
+            },
+            "triggers": {
+                "trackClickOnMyDynamicItem" : {
+                    "on": "visible",
+                    "selector": "#yt-player1",
+                    "request": "event",
+                    "vars": {
+                        "eventCategory": "Visibility tracking",
+                        "eventAction": "visible",
+                        "eventLabel": "seen",
+                        "eventValue": ""
+                    }
+                }
+            },
+            "extraUrlParams": {
+                "cd7":"Element Visibility",
+                "cd2":"${clientId}"
+                }
+        }
+        </script>
+    </amp-analytics>
+
+    <!-- GA4 Element Visibilty -->
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json"
+        data-credentials="include">
+        <script type="application/json">
+            {
+                "vars": {
+                            "GA4_MEASUREMENT_ID": "G-CT05FG5EK2",
+                            "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                            "DEFAULT_PAGEVIEW_ENABLED": false,   
+                            "GOOGLE_CONSENT_ENABLED": false,
+                            "WEBVITALS_TRACKING": false,
+                            "PERFORMANCE_TIMING_TRACKING": false,
+                            "SEND_DOUBLECLICK_BEACON": false
+                },
+                "triggers": {
+                    "recomendationsViewed": {
+                        "on": "visible",
+                        "request": "ga4Event",
+                        "vars": {
+                            "ga4_event_name": "Visibility tracking"
+                        },
+                        "extraUrlParams": 
+                            {
+                                "event__str_clientId": "CLIENT_ID(_ga)"   
+                            },
+                        "selector": "#yt-player1",
+                        "visibilitySpec": {
+                            "waitFor": "ini-load",
+                            "visiblePercentageMin": 50,
+                            "totalTimeMin": 500,
+                            "continuousTimeMin": 200
+                        }
+                    }
+                  
+                } 
+            }
+        </script>
+    </amp-analytics>
+    <!-- tracker video is first  -->
+
+
+    <!-- GA3 Timer tracking -->
+    <amp-analytics type="googleanalytics">
+        <script type="application/json">
+    {
+        "vars": {
+            "account": "UA-219263204-1"
+        },
+        "triggers": 
+        {  
+            "pageTimer": 
+            {    
+                "on": "timer",    
+                "timerSpec": 
+                {      
+                    "interval": 60,      
+                    "maxTimerLength": 600    
+                },    
+                    "request": "event",    
+                    "vars": 
+                    {      
+                        "eventCategory": "pagetime",      
+                        "eventAction": "Engaged ${totalEngagedTime}",      
+                        "eventLabel": "${ampdocUrl}",
+                        "eventValue": ""
+                        
+                    }  
+            }
+        },
+        "extraUrlParams": {
+            "cd8":"Timer Tracking",
+            "cd2":"${clientId}"
+            }
+    }
+</script>
+    </amp-analytics>
+
+    <!-- GA4 Timer Tracking -->
+    <amp-analytics type="googleanalytics" config="https://amp.analytics-debugger.com/ga4.json"
+        data-credentials="include">
+        <script type="application/json">
+            {
+                "vars": {
+                            "GA4_MEASUREMENT_ID": "G-CT05FG5EK2",
+                            "GA4_ENDPOINT_HOSTNAME": "www.google-analytics.com",
+                            "DEFAULT_PAGEVIEW_ENABLED": false,   
+                            "GOOGLE_CONSENT_ENABLED": false,
+                            "WEBVITALS_TRACKING": false,
+                            "PERFORMANCE_TIMING_TRACKING": false,
+                            "SEND_DOUBLECLICK_BEACON": false
+                },
+                "triggers": 
+                {  
+                    "pageTimer": 
+                    {    
+                        "on": "timer",    
+                        "timerSpec": 
+                        {      
+                            "interval": 60,      
+                            "maxTimerLength": 600    
+                        },    
+                            "request": "ga4Event",  
+                            "vars": 
+                            {      
+                                "ga4_event_name": "pagetime"
+                                
+                            },
+                            "extraUrlParams": { 
+                                "event__str_engagetime": "Engaged ${totalEngagedTime}",
+                                "event__str_location": "${ampdocUrl}",
+                                "event__str_clientId": "CLIENT_ID(_ga)" 
+                            }  
+                    }
+        }
+    }
+</script>
+    </amp-analytics>
+
+
+
+    <!-- Virtual Pageview in GA3 -->
+    <!-- <amp-layout class="virtual-pageview-1 hidden012" data-vars-page-location="https://analyticsimplementation-5bf5d.web.app/" data-vars-page-title="Title 1"><div>your own elements</div></amp-layout> -->
+
+    <!-- <div class="cta">
+    <a class="virtual-pageview-1 hidden012" href="https://analyticsimplementation-5bf5d.web.app/" on="tap:sidebar1" 
+        id="the-button">Button link</a>
+</div> -->
+
+
+    <!-- <amp-analytics type="googleanalytics">
+    <script type="application/json">
+    {
+        "vars": {
+            "account": "UA-219263204-1"
+        },
+        "triggers": {
+            "trackPageview": {
+                "on": "visible",
+                "request": "pageview"
+            },
+            "virtualPageview1": {
+                "selector": ".virtual-pageview-1",
+                "on": "visible",
+                "request": "pageview",
+                "vars": {
+                    "documentLocation": "${pageLocation}",
+                    "title": "${pageTitle}"
+                }
+            }
+        }
+    }
+    </script>
+    </amp-analytics> -->
+
+
+    <!-- ADs Loading tracking -->
+    <!-- <amp-analytics type="googleanalytics">
+        <script type="application/json">
+        {
+            "vars": {
+                "account": "UA-219263204-1"
+            },
+            "triggers": 
+            {  
+                "adsloaded": {
+                    "on": "render-start",
+                    "request": "event",
+                    "vars": {
+                        "event": "ads_loaded"
+                    },
+                    "selector": "#ads012"
+                  }
+                }
+            }
+        }
+</script>
+</amp-analytics> -->
+
+
+
+    <h1 id="hello">Hello AMP HTML World!</h1>
+    <div class="containetr">
+        <div class="left-box">
+            left-box content
+        </div>
+        <div class="right-box">
+            right-box content
+        </div>
+
+
+
+
+        <br><br>
+        <div class="cta">
+            <a on="tap:sidebar1" class="cta_click" id="the-button">sidebar menu </a>
+        </div>
+    </div>
+
+
+
+    <!-- side bar -->
+    <amp-sidebar id="sidebar1" layout="nodisplay" style="width:300px">
+        <amp-nested-menu layout="fill">
+            <ul>
+                <li>
+                    <h4 amp-nested-submenu-open>Open Sub-Menu</h4>
+                    <div amp-nested-submenu>
+                        <ul>
+                            <li>
+                                <h4 amp-nested-submenu-close>Go back</h4>
+                            </li>
+                            <li>
+                                <h4 amp-nested-submenu-open>Open Another Sub-Menu</h4>
+                                <div amp-nested-submenu>
+                                    <h4 amp-nested-submenu-close>Go back</h4>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Link1</a>
+                </li>
+                <li>
+                    <a href="#">Link2</a>
+                </li>
+                <li>
+                    <a href="#">Link3</a>
+                </li>
+                <li>
+                    <a href="#">Link4</a>
+                </li>
+                <li>
+                    <a href="#">Link5</a>
+                </li>
+            </ul>
+        </amp-nested-menu>
+    </amp-sidebar>
+
+    <br>
+    <!-- hide and show in amp -->
+    <div id="hidee">Hello World</div>
+    <button on="tap:hidee.toggleVisibility">Show greeting</button>
+
+    <button>
+        <a href="client_id_check.html">Go for CID Checking</a>
+    </button>
+    <button>
+        <a href="client_id_check_blank.html">Go for CID Checking on blank page</a>
+    </button>
+    <button>
+        <a href="https://ga4-gtm.web.app/index.html">Back to GA4 Home Page</a>
+    </button>
+    <button>
+        <a href="https://gtm-analytics-neet.web.app/index.html">Back to GA3 Home Page</a>
+    </button>
+
+
+    <br>
+    <!-- accordion in amp -->
+    <amp-accordion class="sample">
+        <section expanded>
+            <h4>Section 1</h4>
+            <p>Bunch of awesome content.</p>
+        </section>
+        <section>
+            <h4>Section 2</h4>
+            <div>Bunch of even more awesome content. This time in a <code><div></code>.</div>
+        </section>
+        <section>
+            <h4>Section 3</h4>
+            <figure>
+                <amp-img
+                    src="https://images.unsplash.com/photo-1502759683299-cdcd6974244f?auto=format&fit=crop&w=440&h=220&q=60"
+                    width="450" height="300"></amp-img>
+                <figcaption>Images work as well.</figcaption>
+            </figure>
+        </section>
+    </amp-accordion>
+
+    <!--Youtube tracking video --> <br> <br>
+    <center>
+        <amp-youtube id="yt-player0" class="video1" width="480" height="270" data-videoid="Ft208ORSqiE">
+        </amp-youtube>
+    </center>
+
+
+    <amp-carousel width="400" height="300" layout="responsive" type="slides" autoplay delay="3000">
+        <amp-img src="https://media.geeksforgeeks.org/wp-content/uploads/geeksforgeeks-9.png" width="400" height="300"
+            layout="responsive">
+        </amp-img>
+
+        <amp-img src="https://media.geeksforgeeks.org/wp-content/uploads/20190918234528/colorize1.png" width="400"
+            height="300" layout="responsive">
+        </amp-img>
+
+        <amp-img src="https://media.geeksforgeeks.org/wp-content/uploads/20190918234815/colorize2.png" width="200"
+            height="100" layout="responsive">
+        </amp-img>
+    </amp-carousel>
+
+
+
+
+
+
+    <!-- Youtube video -->
+    <br> <br>
+    <center>
+        <amp-youtube id="yt-player1" class="video" width="480" height="270" data-videoid="Ft208ORSqiE">
+        </amp-youtube>
+    </center>
+    <br> <br>
+
+    <!-- ADS Element -->
+    <br><br>
+
+    <div>
+        <a href="https://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=C9fQIp2d-YuiNNJCSyAOc-r-QCIPkl4hpt8yU0b8O2tkeEAEg7YL4H2Dl0uSDqA6gAcWdn78DyAEC4AIAqAMByAMIqgT4Ak_QN7SpojrGYLp4kOdiC-w2Fo1md8AlsW5bfjKQ5TxyDGvw-Rh82z_QpMGJ_glpfLJV64Tirid6wPP4tzGzuXLooUEj9LLfzeOdzlkWIRiwWRuYrbph_EQlAUT6Bq8sx1PcQXQuW4hEUcwKwLw9mb6IbdeQM3-97IaX3ObtlTBxy4Dck8frBAXb2OSCUGTuHmfkPyZe9_t0kHmdy0DCjQGTgy1W1POE4NaTQv2A-NLQS1BPEt9OFZ7PM54aHcvklguyqtNE6-g9CcX_nsmVew2tv_sqhHUD7XqZb_OXtnE2WnIUEH7cOLbDss0fl7m8lbCyQs_v5Er7uqHRQCu-HNu8Ybrn-wEXiyG3vaGRwKJMb3h5CtXAtmFbrqRtKkydnkIsoeEtTcka-RPD6yHWjBsB4caIBenXfTNveIsjexlB9yjscgKCUAQ3RGHZszPs7XhrLWkFRa3qPIym0maomncMczGLr_9YfKCVHyd9arxmRFh2BebuIBHABJu9rZzYA-AEAaAGAoAHo-LgQKgHjs4bqAeT2BuoB-6WsQKoB_6esQKoB6SjsQKoB9XJG6gHpr4bqAfz0RuoB5bYG6gHqpuxAqgH35-xAtgHAdIIBwiAYRABGB2xCYTQqgOewNJ8gAoDigrKAWh0dHBzOi8vaW8uY2xpY2tndWFyZC5jb20vdC9jSEp2ZEdWamRHOXkvOXVwRGtBM0U_Y2c9dHJhY2sma3c9Jm53PWQmY3A9MTEyMzMzNjE0NjkmYWc9MTI2NzYxMDAwNjAzJmFkPTU0NzE3ODAyOTM0OSZrZD1hdWQtODQ5NjQ2ODg4MDEyJmR2PWMmbXQ9JnBsPXd3dy5idXNpbmVzc2luc2lkZXIuaW4mcmQ9Njc4NTEwMTI1NTgxNTA1MzA1JnRnPXtscHVybH2YCwHICwHgCwG4DAHYEw3QFQGYFgH4FgGAFwE&amp;ae=1&amp;num=1&amp;cid=CAASJORoDxxZ5TdRQwyfib2OEMYaSxM5FIRhKErlLPkcpqHoGomNhw&amp;sig=AOD64_29PJhzQIGNiSYDW69cKGcz-5sKLQ&amp;client=ca-pub-2230723027927371&amp;nx=CLICK_X&amp;ny=CLICK_Y&amp;nb=2&amp;adurl=https://www.moengage.com/casestudy/gaana-case-study/%3Futm_source%3Dgoogle%26utm_medium%3Dpaid%26utm_campaign%3Dgd-india-rm-demo-li%26campaignid%3D11233361469%26adgroupid%3D126761000603%26adid%3D547178029349%26utm_campaign%3DGD-India-RM-Demo-LI%26utm_source%3Dadwords%26utm_term%3D%26utm_medium%3Dcpc%26hsa_net%3Dadwords%26hsa_mt%3D%26hsa_ver%3D3%26hsa_kw%3D%26hsa_ad%3D547178029349%26hsa_src%3Dd%26hsa_grp%3D126761000603%26hsa_cam%3D11233361469%26hsa_tgt%3Daud-849646888012%26hsa_acc%3D7352429802%26gclid%3DEAIaIQobChMIqP2jydTc9wIVEAlyCh0c_Q-CEAEYASAAEgLbKvD_BwE"
+            id="aw0" on="tap:exit-api.exit(target='landingPage',_googClickLocation='2')" target="_blank">
+            <amp-img alt=""
+                class="img_ad ads i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-element i-amphtml-built i-amphtml-layout"
+                id="ads" height="280" i-amphtml-layout="fixed" i-amphtml-ssr=""
+                src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw"
+                style="width:336px;height:280px;" width="336"><img alt=""
+                    class="i-amphtml-fill-content i-amphtml-replaced-content ads" id="ads" decoding="async"
+                    src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw">
+            </amp-img>
+        </a>
+    </div>
+
+    <br><br>
+
+
+
+
+
+
+
+
+    <!-- ADS Element -->
+    <br><br>
+
+    <div>
+        <a href="https://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=C9fQIp2d-YuiNNJCSyAOc-r-QCIPkl4hpt8yU0b8O2tkeEAEg7YL4H2Dl0uSDqA6gAcWdn78DyAEC4AIAqAMByAMIqgT4Ak_QN7SpojrGYLp4kOdiC-w2Fo1md8AlsW5bfjKQ5TxyDGvw-Rh82z_QpMGJ_glpfLJV64Tirid6wPP4tzGzuXLooUEj9LLfzeOdzlkWIRiwWRuYrbph_EQlAUT6Bq8sx1PcQXQuW4hEUcwKwLw9mb6IbdeQM3-97IaX3ObtlTBxy4Dck8frBAXb2OSCUGTuHmfkPyZe9_t0kHmdy0DCjQGTgy1W1POE4NaTQv2A-NLQS1BPEt9OFZ7PM54aHcvklguyqtNE6-g9CcX_nsmVew2tv_sqhHUD7XqZb_OXtnE2WnIUEH7cOLbDss0fl7m8lbCyQs_v5Er7uqHRQCu-HNu8Ybrn-wEXiyG3vaGRwKJMb3h5CtXAtmFbrqRtKkydnkIsoeEtTcka-RPD6yHWjBsB4caIBenXfTNveIsjexlB9yjscgKCUAQ3RGHZszPs7XhrLWkFRa3qPIym0maomncMczGLr_9YfKCVHyd9arxmRFh2BebuIBHABJu9rZzYA-AEAaAGAoAHo-LgQKgHjs4bqAeT2BuoB-6WsQKoB_6esQKoB6SjsQKoB9XJG6gHpr4bqAfz0RuoB5bYG6gHqpuxAqgH35-xAtgHAdIIBwiAYRABGB2xCYTQqgOewNJ8gAoDigrKAWh0dHBzOi8vaW8uY2xpY2tndWFyZC5jb20vdC9jSEp2ZEdWamRHOXkvOXVwRGtBM0U_Y2c9dHJhY2sma3c9Jm53PWQmY3A9MTEyMzMzNjE0NjkmYWc9MTI2NzYxMDAwNjAzJmFkPTU0NzE3ODAyOTM0OSZrZD1hdWQtODQ5NjQ2ODg4MDEyJmR2PWMmbXQ9JnBsPXd3dy5idXNpbmVzc2luc2lkZXIuaW4mcmQ9Njc4NTEwMTI1NTgxNTA1MzA1JnRnPXtscHVybH2YCwHICwHgCwG4DAHYEw3QFQGYFgH4FgGAFwE&amp;ae=1&amp;num=1&amp;cid=CAASJORoDxxZ5TdRQwyfib2OEMYaSxM5FIRhKErlLPkcpqHoGomNhw&amp;sig=AOD64_29PJhzQIGNiSYDW69cKGcz-5sKLQ&amp;client=ca-pub-2230723027927371&amp;nx=CLICK_X&amp;ny=CLICK_Y&amp;nb=2&amp;adurl=https://www.moengage.com/casestudy/gaana-case-study/%3Futm_source%3Dgoogle%26utm_medium%3Dpaid%26utm_campaign%3Dgd-india-rm-demo-li%26campaignid%3D11233361469%26adgroupid%3D126761000603%26adid%3D547178029349%26utm_campaign%3DGD-India-RM-Demo-LI%26utm_source%3Dadwords%26utm_term%3D%26utm_medium%3Dcpc%26hsa_net%3Dadwords%26hsa_mt%3D%26hsa_ver%3D3%26hsa_kw%3D%26hsa_ad%3D547178029349%26hsa_src%3Dd%26hsa_grp%3D126761000603%26hsa_cam%3D11233361469%26hsa_tgt%3Daud-849646888012%26hsa_acc%3D7352429802%26gclid%3DEAIaIQobChMIqP2jydTc9wIVEAlyCh0c_Q-CEAEYASAAEgLbKvD_BwE"
+            id="aw0" on="tap:exit-api.exit(target='landingPage',_googClickLocation='2')" target="_blank">
+            <amp-img alt=""
+                class="img_ad ads i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-element i-amphtml-built i-amphtml-layout"
+                id="ads" height="280" i-amphtml-layout="fixed" i-amphtml-ssr=""
+                src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw"
+                style="width:336px;height:280px;" width="336"><img alt=""
+                    class="i-amphtml-fill-content i-amphtml-replaced-content ads" id="ads" decoding="async"
+                    src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw">
+            </amp-img>
+        </a>
+    </div>
+
+    <br><br>
+
+    <!-- ADS Element -->
+    <br><br>
+
+    <div>
+        <a href="https://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=C9fQIp2d-YuiNNJCSyAOc-r-QCIPkl4hpt8yU0b8O2tkeEAEg7YL4H2Dl0uSDqA6gAcWdn78DyAEC4AIAqAMByAMIqgT4Ak_QN7SpojrGYLp4kOdiC-w2Fo1md8AlsW5bfjKQ5TxyDGvw-Rh82z_QpMGJ_glpfLJV64Tirid6wPP4tzGzuXLooUEj9LLfzeOdzlkWIRiwWRuYrbph_EQlAUT6Bq8sx1PcQXQuW4hEUcwKwLw9mb6IbdeQM3-97IaX3ObtlTBxy4Dck8frBAXb2OSCUGTuHmfkPyZe9_t0kHmdy0DCjQGTgy1W1POE4NaTQv2A-NLQS1BPEt9OFZ7PM54aHcvklguyqtNE6-g9CcX_nsmVew2tv_sqhHUD7XqZb_OXtnE2WnIUEH7cOLbDss0fl7m8lbCyQs_v5Er7uqHRQCu-HNu8Ybrn-wEXiyG3vaGRwKJMb3h5CtXAtmFbrqRtKkydnkIsoeEtTcka-RPD6yHWjBsB4caIBenXfTNveIsjexlB9yjscgKCUAQ3RGHZszPs7XhrLWkFRa3qPIym0maomncMczGLr_9YfKCVHyd9arxmRFh2BebuIBHABJu9rZzYA-AEAaAGAoAHo-LgQKgHjs4bqAeT2BuoB-6WsQKoB_6esQKoB6SjsQKoB9XJG6gHpr4bqAfz0RuoB5bYG6gHqpuxAqgH35-xAtgHAdIIBwiAYRABGB2xCYTQqgOewNJ8gAoDigrKAWh0dHBzOi8vaW8uY2xpY2tndWFyZC5jb20vdC9jSEp2ZEdWamRHOXkvOXVwRGtBM0U_Y2c9dHJhY2sma3c9Jm53PWQmY3A9MTEyMzMzNjE0NjkmYWc9MTI2NzYxMDAwNjAzJmFkPTU0NzE3ODAyOTM0OSZrZD1hdWQtODQ5NjQ2ODg4MDEyJmR2PWMmbXQ9JnBsPXd3dy5idXNpbmVzc2luc2lkZXIuaW4mcmQ9Njc4NTEwMTI1NTgxNTA1MzA1JnRnPXtscHVybH2YCwHICwHgCwG4DAHYEw3QFQGYFgH4FgGAFwE&amp;ae=1&amp;num=1&amp;cid=CAASJORoDxxZ5TdRQwyfib2OEMYaSxM5FIRhKErlLPkcpqHoGomNhw&amp;sig=AOD64_29PJhzQIGNiSYDW69cKGcz-5sKLQ&amp;client=ca-pub-2230723027927371&amp;nx=CLICK_X&amp;ny=CLICK_Y&amp;nb=2&amp;adurl=https://www.moengage.com/casestudy/gaana-case-study/%3Futm_source%3Dgoogle%26utm_medium%3Dpaid%26utm_campaign%3Dgd-india-rm-demo-li%26campaignid%3D11233361469%26adgroupid%3D126761000603%26adid%3D547178029349%26utm_campaign%3DGD-India-RM-Demo-LI%26utm_source%3Dadwords%26utm_term%3D%26utm_medium%3Dcpc%26hsa_net%3Dadwords%26hsa_mt%3D%26hsa_ver%3D3%26hsa_kw%3D%26hsa_ad%3D547178029349%26hsa_src%3Dd%26hsa_grp%3D126761000603%26hsa_cam%3D11233361469%26hsa_tgt%3Daud-849646888012%26hsa_acc%3D7352429802%26gclid%3DEAIaIQobChMIqP2jydTc9wIVEAlyCh0c_Q-CEAEYASAAEgLbKvD_BwE"
+            id="aw0" on="tap:exit-api.exit(target='landingPage',_googClickLocation='2')" target="_blank">
+            <amp-img alt=""
+                class="img_ad ads i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-element i-amphtml-built i-amphtml-layout"
+                id="ads" height="280" i-amphtml-layout="fixed" i-amphtml-ssr=""
+                src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw"
+                style="width:336px;height:280px;" width="336"><img alt=""
+                    class="i-amphtml-fill-content i-amphtml-replaced-content ads" id="ads" decoding="async"
+                    src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw">
+            </amp-img>
+        </a>
+    </div>
+
+    <br><br>
+
+
+    <!-- ADS Element -->
+    <br><br>
+
+    <div>
+        <a href="https://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=C9fQIp2d-YuiNNJCSyAOc-r-QCIPkl4hpt8yU0b8O2tkeEAEg7YL4H2Dl0uSDqA6gAcWdn78DyAEC4AIAqAMByAMIqgT4Ak_QN7SpojrGYLp4kOdiC-w2Fo1md8AlsW5bfjKQ5TxyDGvw-Rh82z_QpMGJ_glpfLJV64Tirid6wPP4tzGzuXLooUEj9LLfzeOdzlkWIRiwWRuYrbph_EQlAUT6Bq8sx1PcQXQuW4hEUcwKwLw9mb6IbdeQM3-97IaX3ObtlTBxy4Dck8frBAXb2OSCUGTuHmfkPyZe9_t0kHmdy0DCjQGTgy1W1POE4NaTQv2A-NLQS1BPEt9OFZ7PM54aHcvklguyqtNE6-g9CcX_nsmVew2tv_sqhHUD7XqZb_OXtnE2WnIUEH7cOLbDss0fl7m8lbCyQs_v5Er7uqHRQCu-HNu8Ybrn-wEXiyG3vaGRwKJMb3h5CtXAtmFbrqRtKkydnkIsoeEtTcka-RPD6yHWjBsB4caIBenXfTNveIsjexlB9yjscgKCUAQ3RGHZszPs7XhrLWkFRa3qPIym0maomncMczGLr_9YfKCVHyd9arxmRFh2BebuIBHABJu9rZzYA-AEAaAGAoAHo-LgQKgHjs4bqAeT2BuoB-6WsQKoB_6esQKoB6SjsQKoB9XJG6gHpr4bqAfz0RuoB5bYG6gHqpuxAqgH35-xAtgHAdIIBwiAYRABGB2xCYTQqgOewNJ8gAoDigrKAWh0dHBzOi8vaW8uY2xpY2tndWFyZC5jb20vdC9jSEp2ZEdWamRHOXkvOXVwRGtBM0U_Y2c9dHJhY2sma3c9Jm53PWQmY3A9MTEyMzMzNjE0NjkmYWc9MTI2NzYxMDAwNjAzJmFkPTU0NzE3ODAyOTM0OSZrZD1hdWQtODQ5NjQ2ODg4MDEyJmR2PWMmbXQ9JnBsPXd3dy5idXNpbmVzc2luc2lkZXIuaW4mcmQ9Njc4NTEwMTI1NTgxNTA1MzA1JnRnPXtscHVybH2YCwHICwHgCwG4DAHYEw3QFQGYFgH4FgGAFwE&amp;ae=1&amp;num=1&amp;cid=CAASJORoDxxZ5TdRQwyfib2OEMYaSxM5FIRhKErlLPkcpqHoGomNhw&amp;sig=AOD64_29PJhzQIGNiSYDW69cKGcz-5sKLQ&amp;client=ca-pub-2230723027927371&amp;nx=CLICK_X&amp;ny=CLICK_Y&amp;nb=2&amp;adurl=https://www.moengage.com/casestudy/gaana-case-study/%3Futm_source%3Dgoogle%26utm_medium%3Dpaid%26utm_campaign%3Dgd-india-rm-demo-li%26campaignid%3D11233361469%26adgroupid%3D126761000603%26adid%3D547178029349%26utm_campaign%3DGD-India-RM-Demo-LI%26utm_source%3Dadwords%26utm_term%3D%26utm_medium%3Dcpc%26hsa_net%3Dadwords%26hsa_mt%3D%26hsa_ver%3D3%26hsa_kw%3D%26hsa_ad%3D547178029349%26hsa_src%3Dd%26hsa_grp%3D126761000603%26hsa_cam%3D11233361469%26hsa_tgt%3Daud-849646888012%26hsa_acc%3D7352429802%26gclid%3DEAIaIQobChMIqP2jydTc9wIVEAlyCh0c_Q-CEAEYASAAEgLbKvD_BwE"
+            id="aw0" on="tap:exit-api.exit(target='landingPage',_googClickLocation='2')" target="_blank">
+            <amp-img alt=""
+                class="img_ad ads i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-element i-amphtml-built i-amphtml-layout"
+                id="ads" height="280" i-amphtml-layout="fixed" i-amphtml-ssr=""
+                src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw"
+                style="width:336px;height:280px;" width="336"><img alt=""
+                    class="i-amphtml-fill-content i-amphtml-replaced-content ads" id="ads" decoding="async"
+                    src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw">
+            </amp-img>
+        </a>
+    </div>
+
+    <br><br>
+
+    <!-- ADS Element -->
+    <br><br>
+
+    <div>
+        <a href="https://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=C9fQIp2d-YuiNNJCSyAOc-r-QCIPkl4hpt8yU0b8O2tkeEAEg7YL4H2Dl0uSDqA6gAcWdn78DyAEC4AIAqAMByAMIqgT4Ak_QN7SpojrGYLp4kOdiC-w2Fo1md8AlsW5bfjKQ5TxyDGvw-Rh82z_QpMGJ_glpfLJV64Tirid6wPP4tzGzuXLooUEj9LLfzeOdzlkWIRiwWRuYrbph_EQlAUT6Bq8sx1PcQXQuW4hEUcwKwLw9mb6IbdeQM3-97IaX3ObtlTBxy4Dck8frBAXb2OSCUGTuHmfkPyZe9_t0kHmdy0DCjQGTgy1W1POE4NaTQv2A-NLQS1BPEt9OFZ7PM54aHcvklguyqtNE6-g9CcX_nsmVew2tv_sqhHUD7XqZb_OXtnE2WnIUEH7cOLbDss0fl7m8lbCyQs_v5Er7uqHRQCu-HNu8Ybrn-wEXiyG3vaGRwKJMb3h5CtXAtmFbrqRtKkydnkIsoeEtTcka-RPD6yHWjBsB4caIBenXfTNveIsjexlB9yjscgKCUAQ3RGHZszPs7XhrLWkFRa3qPIym0maomncMczGLr_9YfKCVHyd9arxmRFh2BebuIBHABJu9rZzYA-AEAaAGAoAHo-LgQKgHjs4bqAeT2BuoB-6WsQKoB_6esQKoB6SjsQKoB9XJG6gHpr4bqAfz0RuoB5bYG6gHqpuxAqgH35-xAtgHAdIIBwiAYRABGB2xCYTQqgOewNJ8gAoDigrKAWh0dHBzOi8vaW8uY2xpY2tndWFyZC5jb20vdC9jSEp2ZEdWamRHOXkvOXVwRGtBM0U_Y2c9dHJhY2sma3c9Jm53PWQmY3A9MTEyMzMzNjE0NjkmYWc9MTI2NzYxMDAwNjAzJmFkPTU0NzE3ODAyOTM0OSZrZD1hdWQtODQ5NjQ2ODg4MDEyJmR2PWMmbXQ9JnBsPXd3dy5idXNpbmVzc2luc2lkZXIuaW4mcmQ9Njc4NTEwMTI1NTgxNTA1MzA1JnRnPXtscHVybH2YCwHICwHgCwG4DAHYEw3QFQGYFgH4FgGAFwE&amp;ae=1&amp;num=1&amp;cid=CAASJORoDxxZ5TdRQwyfib2OEMYaSxM5FIRhKErlLPkcpqHoGomNhw&amp;sig=AOD64_29PJhzQIGNiSYDW69cKGcz-5sKLQ&amp;client=ca-pub-2230723027927371&amp;nx=CLICK_X&amp;ny=CLICK_Y&amp;nb=2&amp;adurl=https://www.moengage.com/casestudy/gaana-case-study/%3Futm_source%3Dgoogle%26utm_medium%3Dpaid%26utm_campaign%3Dgd-india-rm-demo-li%26campaignid%3D11233361469%26adgroupid%3D126761000603%26adid%3D547178029349%26utm_campaign%3DGD-India-RM-Demo-LI%26utm_source%3Dadwords%26utm_term%3D%26utm_medium%3Dcpc%26hsa_net%3Dadwords%26hsa_mt%3D%26hsa_ver%3D3%26hsa_kw%3D%26hsa_ad%3D547178029349%26hsa_src%3Dd%26hsa_grp%3D126761000603%26hsa_cam%3D11233361469%26hsa_tgt%3Daud-849646888012%26hsa_acc%3D7352429802%26gclid%3DEAIaIQobChMIqP2jydTc9wIVEAlyCh0c_Q-CEAEYASAAEgLbKvD_BwE"
+            id="aw0" on="tap:exit-api.exit(target='landingPage',_googClickLocation='2')" target="_blank">
+            <amp-img alt=""
+                class="img_ad ads i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-element i-amphtml-built i-amphtml-layout"
+                id="ads" height="280" i-amphtml-layout="fixed" i-amphtml-ssr=""
+                src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw"
+                style="width:336px;height:280px;" width="336"><img alt=""
+                    class="i-amphtml-fill-content i-amphtml-replaced-content ads" id="ads" decoding="async"
+                    src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw">
+            </amp-img>
+        </a>
+    </div>
+
+    <br><br>
+
+    <!-- ADS Element -->
+    <br><br>
+
+    <div>
+        <a href="https://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=C9fQIp2d-YuiNNJCSyAOc-r-QCIPkl4hpt8yU0b8O2tkeEAEg7YL4H2Dl0uSDqA6gAcWdn78DyAEC4AIAqAMByAMIqgT4Ak_QN7SpojrGYLp4kOdiC-w2Fo1md8AlsW5bfjKQ5TxyDGvw-Rh82z_QpMGJ_glpfLJV64Tirid6wPP4tzGzuXLooUEj9LLfzeOdzlkWIRiwWRuYrbph_EQlAUT6Bq8sx1PcQXQuW4hEUcwKwLw9mb6IbdeQM3-97IaX3ObtlTBxy4Dck8frBAXb2OSCUGTuHmfkPyZe9_t0kHmdy0DCjQGTgy1W1POE4NaTQv2A-NLQS1BPEt9OFZ7PM54aHcvklguyqtNE6-g9CcX_nsmVew2tv_sqhHUD7XqZb_OXtnE2WnIUEH7cOLbDss0fl7m8lbCyQs_v5Er7uqHRQCu-HNu8Ybrn-wEXiyG3vaGRwKJMb3h5CtXAtmFbrqRtKkydnkIsoeEtTcka-RPD6yHWjBsB4caIBenXfTNveIsjexlB9yjscgKCUAQ3RGHZszPs7XhrLWkFRa3qPIym0maomncMczGLr_9YfKCVHyd9arxmRFh2BebuIBHABJu9rZzYA-AEAaAGAoAHo-LgQKgHjs4bqAeT2BuoB-6WsQKoB_6esQKoB6SjsQKoB9XJG6gHpr4bqAfz0RuoB5bYG6gHqpuxAqgH35-xAtgHAdIIBwiAYRABGB2xCYTQqgOewNJ8gAoDigrKAWh0dHBzOi8vaW8uY2xpY2tndWFyZC5jb20vdC9jSEp2ZEdWamRHOXkvOXVwRGtBM0U_Y2c9dHJhY2sma3c9Jm53PWQmY3A9MTEyMzMzNjE0NjkmYWc9MTI2NzYxMDAwNjAzJmFkPTU0NzE3ODAyOTM0OSZrZD1hdWQtODQ5NjQ2ODg4MDEyJmR2PWMmbXQ9JnBsPXd3dy5idXNpbmVzc2luc2lkZXIuaW4mcmQ9Njc4NTEwMTI1NTgxNTA1MzA1JnRnPXtscHVybH2YCwHICwHgCwG4DAHYEw3QFQGYFgH4FgGAFwE&amp;ae=1&amp;num=1&amp;cid=CAASJORoDxxZ5TdRQwyfib2OEMYaSxM5FIRhKErlLPkcpqHoGomNhw&amp;sig=AOD64_29PJhzQIGNiSYDW69cKGcz-5sKLQ&amp;client=ca-pub-2230723027927371&amp;nx=CLICK_X&amp;ny=CLICK_Y&amp;nb=2&amp;adurl=https://www.moengage.com/casestudy/gaana-case-study/%3Futm_source%3Dgoogle%26utm_medium%3Dpaid%26utm_campaign%3Dgd-india-rm-demo-li%26campaignid%3D11233361469%26adgroupid%3D126761000603%26adid%3D547178029349%26utm_campaign%3DGD-India-RM-Demo-LI%26utm_source%3Dadwords%26utm_term%3D%26utm_medium%3Dcpc%26hsa_net%3Dadwords%26hsa_mt%3D%26hsa_ver%3D3%26hsa_kw%3D%26hsa_ad%3D547178029349%26hsa_src%3Dd%26hsa_grp%3D126761000603%26hsa_cam%3D11233361469%26hsa_tgt%3Daud-849646888012%26hsa_acc%3D7352429802%26gclid%3DEAIaIQobChMIqP2jydTc9wIVEAlyCh0c_Q-CEAEYASAAEgLbKvD_BwE"
+            id="aw0" on="tap:exit-api.exit(target='landingPage',_googClickLocation='2')" target="_blank">
+            <amp-img alt=""
+                class="img_ad ads i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-element i-amphtml-built i-amphtml-layout"
+                id="ads" height="280" i-amphtml-layout="fixed" i-amphtml-ssr=""
+                src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw"
+                style="width:336px;height:280px;" width="336"><img alt=""
+                    class="i-amphtml-fill-content i-amphtml-replaced-content ads" id="ads" decoding="async"
+                    src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw">
+            </amp-img>
+        </a>
+    </div>
+
+    <br><br>
+
+    <!-- ADS Element -->
+    <br><br>
+
+    <div>
+        <a href="https://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=C9fQIp2d-YuiNNJCSyAOc-r-QCIPkl4hpt8yU0b8O2tkeEAEg7YL4H2Dl0uSDqA6gAcWdn78DyAEC4AIAqAMByAMIqgT4Ak_QN7SpojrGYLp4kOdiC-w2Fo1md8AlsW5bfjKQ5TxyDGvw-Rh82z_QpMGJ_glpfLJV64Tirid6wPP4tzGzuXLooUEj9LLfzeOdzlkWIRiwWRuYrbph_EQlAUT6Bq8sx1PcQXQuW4hEUcwKwLw9mb6IbdeQM3-97IaX3ObtlTBxy4Dck8frBAXb2OSCUGTuHmfkPyZe9_t0kHmdy0DCjQGTgy1W1POE4NaTQv2A-NLQS1BPEt9OFZ7PM54aHcvklguyqtNE6-g9CcX_nsmVew2tv_sqhHUD7XqZb_OXtnE2WnIUEH7cOLbDss0fl7m8lbCyQs_v5Er7uqHRQCu-HNu8Ybrn-wEXiyG3vaGRwKJMb3h5CtXAtmFbrqRtKkydnkIsoeEtTcka-RPD6yHWjBsB4caIBenXfTNveIsjexlB9yjscgKCUAQ3RGHZszPs7XhrLWkFRa3qPIym0maomncMczGLr_9YfKCVHyd9arxmRFh2BebuIBHABJu9rZzYA-AEAaAGAoAHo-LgQKgHjs4bqAeT2BuoB-6WsQKoB_6esQKoB6SjsQKoB9XJG6gHpr4bqAfz0RuoB5bYG6gHqpuxAqgH35-xAtgHAdIIBwiAYRABGB2xCYTQqgOewNJ8gAoDigrKAWh0dHBzOi8vaW8uY2xpY2tndWFyZC5jb20vdC9jSEp2ZEdWamRHOXkvOXVwRGtBM0U_Y2c9dHJhY2sma3c9Jm53PWQmY3A9MTEyMzMzNjE0NjkmYWc9MTI2NzYxMDAwNjAzJmFkPTU0NzE3ODAyOTM0OSZrZD1hdWQtODQ5NjQ2ODg4MDEyJmR2PWMmbXQ9JnBsPXd3dy5idXNpbmVzc2luc2lkZXIuaW4mcmQ9Njc4NTEwMTI1NTgxNTA1MzA1JnRnPXtscHVybH2YCwHICwHgCwG4DAHYEw3QFQGYFgH4FgGAFwE&amp;ae=1&amp;num=1&amp;cid=CAASJORoDxxZ5TdRQwyfib2OEMYaSxM5FIRhKErlLPkcpqHoGomNhw&amp;sig=AOD64_29PJhzQIGNiSYDW69cKGcz-5sKLQ&amp;client=ca-pub-2230723027927371&amp;nx=CLICK_X&amp;ny=CLICK_Y&amp;nb=2&amp;adurl=https://www.moengage.com/casestudy/gaana-case-study/%3Futm_source%3Dgoogle%26utm_medium%3Dpaid%26utm_campaign%3Dgd-india-rm-demo-li%26campaignid%3D11233361469%26adgroupid%3D126761000603%26adid%3D547178029349%26utm_campaign%3DGD-India-RM-Demo-LI%26utm_source%3Dadwords%26utm_term%3D%26utm_medium%3Dcpc%26hsa_net%3Dadwords%26hsa_mt%3D%26hsa_ver%3D3%26hsa_kw%3D%26hsa_ad%3D547178029349%26hsa_src%3Dd%26hsa_grp%3D126761000603%26hsa_cam%3D11233361469%26hsa_tgt%3Daud-849646888012%26hsa_acc%3D7352429802%26gclid%3DEAIaIQobChMIqP2jydTc9wIVEAlyCh0c_Q-CEAEYASAAEgLbKvD_BwE"
+            id="aw0" on="tap:exit-api.exit(target='landingPage',_googClickLocation='2')" target="_blank">
+            <amp-img alt=""
+                class="img_ad ads i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-element i-amphtml-built i-amphtml-layout"
+                id="ads" height="280" i-amphtml-layout="fixed" i-amphtml-ssr=""
+                src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw"
+                style="width:336px;height:280px;" width="336"><img alt=""
+                    class="i-amphtml-fill-content i-amphtml-replaced-content ads" id="ads" decoding="async"
+                    src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw">
+            </amp-img>
+        </a>
+    </div>
+
+    <br><br>
+
+
+    <!-- ADS Element -->
+    <br><br>
+
+    <div>
+        <a href="https://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=C9fQIp2d-YuiNNJCSyAOc-r-QCIPkl4hpt8yU0b8O2tkeEAEg7YL4H2Dl0uSDqA6gAcWdn78DyAEC4AIAqAMByAMIqgT4Ak_QN7SpojrGYLp4kOdiC-w2Fo1md8AlsW5bfjKQ5TxyDGvw-Rh82z_QpMGJ_glpfLJV64Tirid6wPP4tzGzuXLooUEj9LLfzeOdzlkWIRiwWRuYrbph_EQlAUT6Bq8sx1PcQXQuW4hEUcwKwLw9mb6IbdeQM3-97IaX3ObtlTBxy4Dck8frBAXb2OSCUGTuHmfkPyZe9_t0kHmdy0DCjQGTgy1W1POE4NaTQv2A-NLQS1BPEt9OFZ7PM54aHcvklguyqtNE6-g9CcX_nsmVew2tv_sqhHUD7XqZb_OXtnE2WnIUEH7cOLbDss0fl7m8lbCyQs_v5Er7uqHRQCu-HNu8Ybrn-wEXiyG3vaGRwKJMb3h5CtXAtmFbrqRtKkydnkIsoeEtTcka-RPD6yHWjBsB4caIBenXfTNveIsjexlB9yjscgKCUAQ3RGHZszPs7XhrLWkFRa3qPIym0maomncMczGLr_9YfKCVHyd9arxmRFh2BebuIBHABJu9rZzYA-AEAaAGAoAHo-LgQKgHjs4bqAeT2BuoB-6WsQKoB_6esQKoB6SjsQKoB9XJG6gHpr4bqAfz0RuoB5bYG6gHqpuxAqgH35-xAtgHAdIIBwiAYRABGB2xCYTQqgOewNJ8gAoDigrKAWh0dHBzOi8vaW8uY2xpY2tndWFyZC5jb20vdC9jSEp2ZEdWamRHOXkvOXVwRGtBM0U_Y2c9dHJhY2sma3c9Jm53PWQmY3A9MTEyMzMzNjE0NjkmYWc9MTI2NzYxMDAwNjAzJmFkPTU0NzE3ODAyOTM0OSZrZD1hdWQtODQ5NjQ2ODg4MDEyJmR2PWMmbXQ9JnBsPXd3dy5idXNpbmVzc2luc2lkZXIuaW4mcmQ9Njc4NTEwMTI1NTgxNTA1MzA1JnRnPXtscHVybH2YCwHICwHgCwG4DAHYEw3QFQGYFgH4FgGAFwE&amp;ae=1&amp;num=1&amp;cid=CAASJORoDxxZ5TdRQwyfib2OEMYaSxM5FIRhKErlLPkcpqHoGomNhw&amp;sig=AOD64_29PJhzQIGNiSYDW69cKGcz-5sKLQ&amp;client=ca-pub-2230723027927371&amp;nx=CLICK_X&amp;ny=CLICK_Y&amp;nb=2&amp;adurl=https://www.moengage.com/casestudy/gaana-case-study/%3Futm_source%3Dgoogle%26utm_medium%3Dpaid%26utm_campaign%3Dgd-india-rm-demo-li%26campaignid%3D11233361469%26adgroupid%3D126761000603%26adid%3D547178029349%26utm_campaign%3DGD-India-RM-Demo-LI%26utm_source%3Dadwords%26utm_term%3D%26utm_medium%3Dcpc%26hsa_net%3Dadwords%26hsa_mt%3D%26hsa_ver%3D3%26hsa_kw%3D%26hsa_ad%3D547178029349%26hsa_src%3Dd%26hsa_grp%3D126761000603%26hsa_cam%3D11233361469%26hsa_tgt%3Daud-849646888012%26hsa_acc%3D7352429802%26gclid%3DEAIaIQobChMIqP2jydTc9wIVEAlyCh0c_Q-CEAEYASAAEgLbKvD_BwE"
+            id="aw0" on="tap:exit-api.exit(target='landingPage',_googClickLocation='2')" target="_blank">
+            <amp-img alt=""
+                class="img_ad ads i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-element i-amphtml-built i-amphtml-layout"
+                id="ads" height="280" i-amphtml-layout="fixed" i-amphtml-ssr=""
+                src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw"
+                style="width:336px;height:280px;" width="336"><img alt=""
+                    class="i-amphtml-fill-content i-amphtml-replaced-content ads" id="ads" decoding="async"
+                    src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw">
+            </amp-img>
+        </a>
+    </div>
+
+    <br><br>
+
+    <!-- ADS Element -->
+    <br><br>
+
+    <div>
+        <a href="https://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=C9fQIp2d-YuiNNJCSyAOc-r-QCIPkl4hpt8yU0b8O2tkeEAEg7YL4H2Dl0uSDqA6gAcWdn78DyAEC4AIAqAMByAMIqgT4Ak_QN7SpojrGYLp4kOdiC-w2Fo1md8AlsW5bfjKQ5TxyDGvw-Rh82z_QpMGJ_glpfLJV64Tirid6wPP4tzGzuXLooUEj9LLfzeOdzlkWIRiwWRuYrbph_EQlAUT6Bq8sx1PcQXQuW4hEUcwKwLw9mb6IbdeQM3-97IaX3ObtlTBxy4Dck8frBAXb2OSCUGTuHmfkPyZe9_t0kHmdy0DCjQGTgy1W1POE4NaTQv2A-NLQS1BPEt9OFZ7PM54aHcvklguyqtNE6-g9CcX_nsmVew2tv_sqhHUD7XqZb_OXtnE2WnIUEH7cOLbDss0fl7m8lbCyQs_v5Er7uqHRQCu-HNu8Ybrn-wEXiyG3vaGRwKJMb3h5CtXAtmFbrqRtKkydnkIsoeEtTcka-RPD6yHWjBsB4caIBenXfTNveIsjexlB9yjscgKCUAQ3RGHZszPs7XhrLWkFRa3qPIym0maomncMczGLr_9YfKCVHyd9arxmRFh2BebuIBHABJu9rZzYA-AEAaAGAoAHo-LgQKgHjs4bqAeT2BuoB-6WsQKoB_6esQKoB6SjsQKoB9XJG6gHpr4bqAfz0RuoB5bYG6gHqpuxAqgH35-xAtgHAdIIBwiAYRABGB2xCYTQqgOewNJ8gAoDigrKAWh0dHBzOi8vaW8uY2xpY2tndWFyZC5jb20vdC9jSEp2ZEdWamRHOXkvOXVwRGtBM0U_Y2c9dHJhY2sma3c9Jm53PWQmY3A9MTEyMzMzNjE0NjkmYWc9MTI2NzYxMDAwNjAzJmFkPTU0NzE3ODAyOTM0OSZrZD1hdWQtODQ5NjQ2ODg4MDEyJmR2PWMmbXQ9JnBsPXd3dy5idXNpbmVzc2luc2lkZXIuaW4mcmQ9Njc4NTEwMTI1NTgxNTA1MzA1JnRnPXtscHVybH2YCwHICwHgCwG4DAHYEw3QFQGYFgH4FgGAFwE&amp;ae=1&amp;num=1&amp;cid=CAASJORoDxxZ5TdRQwyfib2OEMYaSxM5FIRhKErlLPkcpqHoGomNhw&amp;sig=AOD64_29PJhzQIGNiSYDW69cKGcz-5sKLQ&amp;client=ca-pub-2230723027927371&amp;nx=CLICK_X&amp;ny=CLICK_Y&amp;nb=2&amp;adurl=https://www.moengage.com/casestudy/gaana-case-study/%3Futm_source%3Dgoogle%26utm_medium%3Dpaid%26utm_campaign%3Dgd-india-rm-demo-li%26campaignid%3D11233361469%26adgroupid%3D126761000603%26adid%3D547178029349%26utm_campaign%3DGD-India-RM-Demo-LI%26utm_source%3Dadwords%26utm_term%3D%26utm_medium%3Dcpc%26hsa_net%3Dadwords%26hsa_mt%3D%26hsa_ver%3D3%26hsa_kw%3D%26hsa_ad%3D547178029349%26hsa_src%3Dd%26hsa_grp%3D126761000603%26hsa_cam%3D11233361469%26hsa_tgt%3Daud-849646888012%26hsa_acc%3D7352429802%26gclid%3DEAIaIQobChMIqP2jydTc9wIVEAlyCh0c_Q-CEAEYASAAEgLbKvD_BwE"
+            id="aw0" on="tap:exit-api.exit(target='landingPage',_googClickLocation='2')" target="_blank">
+            <amp-img alt=""
+                class="img_ad ads i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-element i-amphtml-built i-amphtml-layout"
+                id="ads" height="280" i-amphtml-layout="fixed" i-amphtml-ssr=""
+                src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw"
+                style="width:336px;height:280px;" width="336"><img alt=""
+                    class="i-amphtml-fill-content i-amphtml-replaced-content ads" id="ads" decoding="async"
+                    src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw">
+            </amp-img>
+        </a>
+    </div>
+
+    <br><br>
+
+
+
+    <!-- <center>
+        <amp-youtube class="" id="" width="480" height="270" data-videoid="Ft208ORSqiE">
+        </amp-youtube>
+    </center> -->
+
+    <!-- ADS Element -->
+    <br><br>
+
+    <div>
+        <a href="https://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=C9fQIp2d-YuiNNJCSyAOc-r-QCIPkl4hpt8yU0b8O2tkeEAEg7YL4H2Dl0uSDqA6gAcWdn78DyAEC4AIAqAMByAMIqgT4Ak_QN7SpojrGYLp4kOdiC-w2Fo1md8AlsW5bfjKQ5TxyDGvw-Rh82z_QpMGJ_glpfLJV64Tirid6wPP4tzGzuXLooUEj9LLfzeOdzlkWIRiwWRuYrbph_EQlAUT6Bq8sx1PcQXQuW4hEUcwKwLw9mb6IbdeQM3-97IaX3ObtlTBxy4Dck8frBAXb2OSCUGTuHmfkPyZe9_t0kHmdy0DCjQGTgy1W1POE4NaTQv2A-NLQS1BPEt9OFZ7PM54aHcvklguyqtNE6-g9CcX_nsmVew2tv_sqhHUD7XqZb_OXtnE2WnIUEH7cOLbDss0fl7m8lbCyQs_v5Er7uqHRQCu-HNu8Ybrn-wEXiyG3vaGRwKJMb3h5CtXAtmFbrqRtKkydnkIsoeEtTcka-RPD6yHWjBsB4caIBenXfTNveIsjexlB9yjscgKCUAQ3RGHZszPs7XhrLWkFRa3qPIym0maomncMczGLr_9YfKCVHyd9arxmRFh2BebuIBHABJu9rZzYA-AEAaAGAoAHo-LgQKgHjs4bqAeT2BuoB-6WsQKoB_6esQKoB6SjsQKoB9XJG6gHpr4bqAfz0RuoB5bYG6gHqpuxAqgH35-xAtgHAdIIBwiAYRABGB2xCYTQqgOewNJ8gAoDigrKAWh0dHBzOi8vaW8uY2xpY2tndWFyZC5jb20vdC9jSEp2ZEdWamRHOXkvOXVwRGtBM0U_Y2c9dHJhY2sma3c9Jm53PWQmY3A9MTEyMzMzNjE0NjkmYWc9MTI2NzYxMDAwNjAzJmFkPTU0NzE3ODAyOTM0OSZrZD1hdWQtODQ5NjQ2ODg4MDEyJmR2PWMmbXQ9JnBsPXd3dy5idXNpbmVzc2luc2lkZXIuaW4mcmQ9Njc4NTEwMTI1NTgxNTA1MzA1JnRnPXtscHVybH2YCwHICwHgCwG4DAHYEw3QFQGYFgH4FgGAFwE&amp;ae=1&amp;num=1&amp;cid=CAASJORoDxxZ5TdRQwyfib2OEMYaSxM5FIRhKErlLPkcpqHoGomNhw&amp;sig=AOD64_29PJhzQIGNiSYDW69cKGcz-5sKLQ&amp;client=ca-pub-2230723027927371&amp;nx=CLICK_X&amp;ny=CLICK_Y&amp;nb=2&amp;adurl=https://www.moengage.com/casestudy/gaana-case-study/%3Futm_source%3Dgoogle%26utm_medium%3Dpaid%26utm_campaign%3Dgd-india-rm-demo-li%26campaignid%3D11233361469%26adgroupid%3D126761000603%26adid%3D547178029349%26utm_campaign%3DGD-India-RM-Demo-LI%26utm_source%3Dadwords%26utm_term%3D%26utm_medium%3Dcpc%26hsa_net%3Dadwords%26hsa_mt%3D%26hsa_ver%3D3%26hsa_kw%3D%26hsa_ad%3D547178029349%26hsa_src%3Dd%26hsa_grp%3D126761000603%26hsa_cam%3D11233361469%26hsa_tgt%3Daud-849646888012%26hsa_acc%3D7352429802%26gclid%3DEAIaIQobChMIqP2jydTc9wIVEAlyCh0c_Q-CEAEYASAAEgLbKvD_BwE"
+            id="aw0" on="tap:exit-api.exit(target='landingPage',_googClickLocation='2')" target="_blank">
+            <amp-img alt=""
+                class="img_ad ads i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-element i-amphtml-built i-amphtml-layout"
+                id="ads" height="280" i-amphtml-layout="fixed" i-amphtml-ssr=""
+                src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw"
+                style="width:336px;height:280px;" width="336"><img alt=""
+                    class="i-amphtml-fill-content i-amphtml-replaced-content ads" id="ads" decoding="async"
+                    src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw">
+            </amp-img>
+        </a>
+    </div>
+
+    <br><br>
+
+
+    <!-- ADS Element -->
+    <br><br>
+
+    <div>
+        <a href="https://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=C9fQIp2d-YuiNNJCSyAOc-r-QCIPkl4hpt8yU0b8O2tkeEAEg7YL4H2Dl0uSDqA6gAcWdn78DyAEC4AIAqAMByAMIqgT4Ak_QN7SpojrGYLp4kOdiC-w2Fo1md8AlsW5bfjKQ5TxyDGvw-Rh82z_QpMGJ_glpfLJV64Tirid6wPP4tzGzuXLooUEj9LLfzeOdzlkWIRiwWRuYrbph_EQlAUT6Bq8sx1PcQXQuW4hEUcwKwLw9mb6IbdeQM3-97IaX3ObtlTBxy4Dck8frBAXb2OSCUGTuHmfkPyZe9_t0kHmdy0DCjQGTgy1W1POE4NaTQv2A-NLQS1BPEt9OFZ7PM54aHcvklguyqtNE6-g9CcX_nsmVew2tv_sqhHUD7XqZb_OXtnE2WnIUEH7cOLbDss0fl7m8lbCyQs_v5Er7uqHRQCu-HNu8Ybrn-wEXiyG3vaGRwKJMb3h5CtXAtmFbrqRtKkydnkIsoeEtTcka-RPD6yHWjBsB4caIBenXfTNveIsjexlB9yjscgKCUAQ3RGHZszPs7XhrLWkFRa3qPIym0maomncMczGLr_9YfKCVHyd9arxmRFh2BebuIBHABJu9rZzYA-AEAaAGAoAHo-LgQKgHjs4bqAeT2BuoB-6WsQKoB_6esQKoB6SjsQKoB9XJG6gHpr4bqAfz0RuoB5bYG6gHqpuxAqgH35-xAtgHAdIIBwiAYRABGB2xCYTQqgOewNJ8gAoDigrKAWh0dHBzOi8vaW8uY2xpY2tndWFyZC5jb20vdC9jSEp2ZEdWamRHOXkvOXVwRGtBM0U_Y2c9dHJhY2sma3c9Jm53PWQmY3A9MTEyMzMzNjE0NjkmYWc9MTI2NzYxMDAwNjAzJmFkPTU0NzE3ODAyOTM0OSZrZD1hdWQtODQ5NjQ2ODg4MDEyJmR2PWMmbXQ9JnBsPXd3dy5idXNpbmVzc2luc2lkZXIuaW4mcmQ9Njc4NTEwMTI1NTgxNTA1MzA1JnRnPXtscHVybH2YCwHICwHgCwG4DAHYEw3QFQGYFgH4FgGAFwE&amp;ae=1&amp;num=1&amp;cid=CAASJORoDxxZ5TdRQwyfib2OEMYaSxM5FIRhKErlLPkcpqHoGomNhw&amp;sig=AOD64_29PJhzQIGNiSYDW69cKGcz-5sKLQ&amp;client=ca-pub-2230723027927371&amp;nx=CLICK_X&amp;ny=CLICK_Y&amp;nb=2&amp;adurl=https://www.moengage.com/casestudy/gaana-case-study/%3Futm_source%3Dgoogle%26utm_medium%3Dpaid%26utm_campaign%3Dgd-india-rm-demo-li%26campaignid%3D11233361469%26adgroupid%3D126761000603%26adid%3D547178029349%26utm_campaign%3DGD-India-RM-Demo-LI%26utm_source%3Dadwords%26utm_term%3D%26utm_medium%3Dcpc%26hsa_net%3Dadwords%26hsa_mt%3D%26hsa_ver%3D3%26hsa_kw%3D%26hsa_ad%3D547178029349%26hsa_src%3Dd%26hsa_grp%3D126761000603%26hsa_cam%3D11233361469%26hsa_tgt%3Daud-849646888012%26hsa_acc%3D7352429802%26gclid%3DEAIaIQobChMIqP2jydTc9wIVEAlyCh0c_Q-CEAEYASAAEgLbKvD_BwE"
+            id="aw0" on="tap:exit-api.exit(target='landingPage',_googClickLocation='2')" target="_blank">
+            <amp-img alt=""
+                class="img_ad ads i-amphtml-layout-fixed i-amphtml-layout-size-defined i-amphtml-element i-amphtml-built i-amphtml-layout"
+                id="ads012" height="280" i-amphtml-layout="fixed" i-amphtml-ssr=""
+                src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw"
+                style="width:336px;height:280px;" width="336"><img alt=""
+                    class="i-amphtml-fill-content i-amphtml-replaced-content ads" id="ads012" decoding="async"
+                    src="https://tpc.googlesyndication.com/simgad/3622723841736656957?sqp=4sqPyQQrQikqJwhfEAEdAAC0QiABKAEwCTgDQPCTCUgAUAFYAWBfcAJ4AcUBLbKdPg&amp;rs=AOga4ql3_U8pu1JsK9utsQh5W4vq12z1Uw">
+            </amp-img>
+        </a>
+    </div>
+
+    <br><br>
+
+</body>
+
+</html>
